@@ -3,7 +3,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <h1>Hello fRiENd</h1>
+      <input type='text'></input>
+      <input type='number'/>
     </div>
   );
 }
