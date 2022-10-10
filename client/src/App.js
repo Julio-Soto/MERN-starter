@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import './App.css';
+import Axios from 'axios'
 
 function App() {
   const [name,setName] = useState('')
   const [age,setAge] = useState(0)
 
-  const handleSubmit = _=> alert(name + " " + age)
+  const handleSubmit = _=> Axios.post('http://127.0.0.1:3001/insert',{name: name, age: age})
 
   return (
     <div className="App">
