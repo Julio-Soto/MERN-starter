@@ -9,6 +9,7 @@ function App() {
 
   return (
     <div className="App">
+      <h2>Enter Friend DATA</h2>
       <input 
         type='text'
         placeholder='First Name'
@@ -19,7 +20,7 @@ function App() {
         placeholder='Age'
         onChange={(event) => setAge(event.target.value)}
       />
-      <button onClick={handleSubmit}>SUBMIT</button>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 }
