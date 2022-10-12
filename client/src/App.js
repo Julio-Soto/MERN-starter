@@ -1,15 +1,24 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Axios from 'axios'
 
 function App() {
   const [name,setName] = useState('')
   const [age,setAge] = useState(0)
+  const [friendsList,setFriendsList] = useState([])
 
   const handleSubmit = _=> Axios.post('http://10.0.0.59:3001/insert',
                                       {name: name, age: age})
                                       .then( _=> alert('data inserted'))
                                       .catch( err => console.log(err))
+
+  useEffect(
+    _=> {
+        Axios.get('http://10.0.0.59:3001/read')
+          .then(res => setFriendsList(res.data))
+          .catch(err => console.log(err))
+    }
+  ,[])
 
   return (
     <div className="App">
