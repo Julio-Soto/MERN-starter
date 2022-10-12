@@ -9,7 +9,7 @@ function App() {
 
   const handleSubmit = _=> Axios.post('http://10.0.0.59:3001/insert',
                                       {name: name, age: age})
-                                      .then( _=> alert('data inserted'))
+                                      .then( _=> setFriendsList([...friendsList,{name: name, age: age}]))
                                       .catch( err => console.log(err))
 
   useEffect(
