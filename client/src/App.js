@@ -22,18 +22,32 @@ function App() {
 
   return (
     <div className="App">
-      <h2>Enter Friend DATA</h2>
-      <input 
-        type='text'
-        placeholder='First Name'
-        onChange={ (event) => setName(event.target.value)}
-       />
-      <input 
-        type='number'
-        placeholder='Age'
-        onChange={(event) => setAge(event.target.value)}
-      />
-      <button onClick={handleSubmit}>Submit</button>
+      <div className='dataInput'>
+        <h2>Enter Friend DATA</h2>
+        <input 
+          type='text'
+          placeholder='First Name'
+          onChange={ (event) => setName(event.target.value)}
+        />
+        <input 
+          type='number'
+          placeholder='Age'
+          onChange={(event) => setAge(event.target.value)}
+        />
+        <button onClick={handleSubmit}>Submit</button>
+      </div>
+      <div className='dataDisplay'>
+        <ul className='friendsList'>
+          {friendsList.map(friend => {
+            return(
+            <li className='friendItem'>
+              <span>{friend.name}</span>
+              <span> {friend.age}</span>
+            </li>
+            )
+          })}
+        </ul>
+      </div>
     </div>
   );
 }
