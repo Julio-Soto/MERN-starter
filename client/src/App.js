@@ -40,7 +40,7 @@ function App() {
         <ul className='friendsList'>
           {friendsList.map(friend => {
             return(
-            <li className='friendItem'>
+            <li key={friend.name}className='friendItem'>
               <span>{friend.name}</span>
               <span> {friend.age}</span>
             </li>

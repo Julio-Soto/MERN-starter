@@ -5,13 +5,25 @@
 }
 .dataInput{
   width: 100%;
-  height: 500px;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: antiquewhite;
   border-bottom: 1px solid darkgrey;
+}
+.dataDisplay {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightcoral;
+}
+ul {
+  list-style: none;
 }
 h2 {
   margin-bottom: 3em;
