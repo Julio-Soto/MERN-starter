@@ -24,8 +24,10 @@ function App() {
 
   const deleteFriend = _id => {
     console.log('id:' + _id)
-    Axios.delete('http://10.0.0.59:3001/delete', {_id: _id})
-                  .then(_=> {})
+    Axios.delete('http://10.0.0.59:3001/delete?id='+_id)
+                  .then(_=> setFriendsList(friendsList.filter(friend => {
+                    return friend._id !== _id
+                  })))
                   .catch(err => console.log(err))
   }                            
   useEffect(

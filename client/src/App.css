@@ -46,11 +46,11 @@ span {
 }
 .right {
   text-align: right;
-  padding-right: 0.4em;
+  padding-right: 1.5em;
 }
 .material-symbols-outlined {
   height: 25px;
-  padding: 0 0.4em;
+  padding: 0 0.2em;
   cursor: pointer;
 }
 .material-symbols-outlined:hover {
