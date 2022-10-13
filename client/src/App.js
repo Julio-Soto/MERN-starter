@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Axios from 'axios'
-import axios from 'axios';
 
 function App() {
   const [name,setName] = useState('')
@@ -16,12 +15,19 @@ function App() {
                       
   const updateFriend = id => {
     const newAge = prompt('enter new age: ')
-    console.log('id: ' + id)
 
-    axios.put('http://10.0.0.59:3001/update', {newAge: newAge, id: id} )
+    Axios.put('http://10.0.0.59:3001/update', {newAge: newAge, id: id} )
+              .then( _=> setFriendsList(friendsList.map(friend => {
+                return friend._id === id? {name: friend.name, age: newAge} : friend
+              })))
   }
 
-                              
+  const deleteFriend = _id => {
+    console.log('id:' + _id)
+    Axios.delete('http://10.0.0.59:3001/delete', {_id: _id})
+                  .then(_=> {})
+                  .catch(err => console.log(err))
+  }                            
   useEffect(
     _=> {
         Axios.get('http://10.0.0.59:3001/read')
@@ -54,7 +60,7 @@ function App() {
               <span className='dataField'>{friend.name}</span>
               <span className='dataField right'> {friend.age}</span>
               <span className="material-symbols-outlined" onClick={() => {updateFriend(friend._id)}}>edit</span>
-              <span className='material-symbols-outlined'>delete</span>
+              <span className='material-symbols-outlined' onClick={() => {deleteFriend(friend._id)}}>delete</span>
             </li>
             )
           })}

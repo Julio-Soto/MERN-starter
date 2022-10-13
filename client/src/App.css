@@ -25,7 +25,7 @@
 }
 .friendsList {
   list-style: none;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .friendItem:nth-child(odd){
   background-color: lightblue;
@@ -52,6 +52,9 @@ span {
   height: 25px;
   padding: 0 0.4em;
   cursor: pointer;
+}
+.material-symbols-outlined:hover {
+  transform: scale(1.2);
 }
 h2 {
   margin-bottom: 3em;

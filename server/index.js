@@ -40,4 +40,18 @@ app.put('/update',  (req,res) => {
     res.send('record updated')
 })
 
+app.delete('/delete', (req,res) => {
+    //const _id = req.params.id
+
+    FriendModel.findOneAndRemove({_id : req.query.id})
+        .then(friend => {
+            if(friend) res.status(200).send(friend.name + ' Record deleted')
+            else res.status(400).send(req.query.id + ' record not found')
+        })
+        .catch((err) => {
+            console.error(err);
+            res.status(500).send('Error: ' + err);
+          })
+})
+
 app.listen(3001, _=> console.log('Server Listening at PORT:3001'))
