@@ -11,7 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: antiquewhite;
+  background-color: lightblue;
   border-bottom: 1px solid darkgrey;
 }
 .dataDisplay {
@@ -21,29 +21,34 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #eee;
+  background-color: #ddd;
 }
 .friendsList {
   list-style: none;
-  padding: 2em;
+  border-radius: 5px;
+}
+.friendItem:nth-child(odd){
+  background-color: lightblue;
 }
 .friendItem {
-  height: 25px;
-  background-color: white;
+  line-height: 0;
+  vertical-align: middle;
+  padding: 0.5em 1em;
+  background-color: aliceblue;
+}
+span {
+  display: inline-block;
+  vertical-align: middle;
 }
 .dataField {
-  display: inline-block;
   width: 100px;
-  height: 25px;
-  font-size: 1.2 em;
-  margin-bottom: 1em;
+  font-size: 1.2em;
 }
 .right {
   text-align: right;
   padding-right: 0.4em;
 }
 .material-symbols-outlined {
-  display: inline-block;
   height: 25px;
   padding: 0 0.4em;
   cursor: pointer;

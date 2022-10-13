@@ -16,8 +16,9 @@ function App() {
                       
   const updateFriend = id => {
     const newAge = prompt('enter new age: ')
+    console.log('id: ' + id)
 
-    axios.put('http://10.0.0.59:3001/insert', {newAge: newAge, id: id} )
+    axios.put('http://10.0.0.59:3001/update', {newAge: newAge, id: id} )
   }
 
                               
@@ -52,7 +53,7 @@ function App() {
             <li key={friend.name} className='friendItem'>
               <span className='dataField'>{friend.name}</span>
               <span className='dataField right'> {friend.age}</span>
-              <span className="material-symbols-outlined" onClick={updateFriend}>edit</span>
+              <span className="material-symbols-outlined" onClick={() => {updateFriend(friend._id)}}>edit</span>
               <span className='material-symbols-outlined'>delete</span>
             </li>
             )
