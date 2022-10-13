@@ -25,4 +25,20 @@ app.get('/read', (req,res) => {
             else res.send(result)
     })
 })
+
+app.put('/update', async (req,res) => {
+    const newAge = req.body.newAge
+    const id = req.body.id
+
+    try {
+        await FriendModel.findById(id,(err,friend) => {
+           friend.age = newAge
+           friend.save()
+        })            
+    }catch(err){
+        console.log(err)
+    }
+    res.send('record updated')
+})
+
 app.listen(3001, _=> console.log('Server Listening at PORT:3001'))

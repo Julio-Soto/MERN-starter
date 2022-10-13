@@ -25,9 +25,11 @@
 }
 .friendsList {
   list-style: none;
+  padding: 2em;
 }
 .friendItem {
   height: 25px;
+  background-color: white;
 }
 .dataField {
   display: inline-block;
