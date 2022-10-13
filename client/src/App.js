@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './App.css';
 import Axios from 'axios'
+import axios from 'axios';
 
 function App() {
   const [name,setName] = useState('')
@@ -12,6 +13,14 @@ function App() {
                                       .then( _=> setFriendsList([...friendsList,{name: name, age: age}]))
                                       .catch( err => console.log(err))
 
+                      
+  const updateFriend = id => {
+    const newAge = prompt('enter new age: ')
+
+    axios.put('http://10.0.0.59:3001/insert', {newAge: newAge, id: id} )
+  }
+
+                              
   useEffect(
     _=> {
         Axios.get('http://10.0.0.59:3001/read')
@@ -43,7 +52,7 @@ function App() {
             <li key={friend.name} className='friendItem'>
               <span className='dataField'>{friend.name}</span>
               <span className='dataField right'> {friend.age}</span>
-              <span className="material-symbols-outlined">edit</span>
+              <span className="material-symbols-outlined" onClick={updateFriend}>edit</span>
               <span className='material-symbols-outlined'>delete</span>
             </li>
             )

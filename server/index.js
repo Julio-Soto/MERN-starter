@@ -32,7 +32,7 @@ app.put('/update', async (req,res) => {
 
     try {
         await FriendModel.findById(id,(err,friend) => {
-           friend.age = newAge
+           friend.age = Number(newAge)
            friend.save()
         })            
     }catch(err){
